@@ -11,11 +11,11 @@
   <script setup>
   const props = defineProps({
       pokedexEntryNumber: String,
-      normalNumber:Number,
+      normalNumber: Number,
       shinyNumber:  Number
     })
 
-  const imageUrl='./src/assets/pokemon/normal/' + props.pokedexEntryNumber + '.png'
+  const imageUrl='./public/pokemon/normal/' + props.pokedexEntryNumber + '.png'
   </script>
   
   <style>
