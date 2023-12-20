@@ -1,6 +1,6 @@
 <template>
     <div class="image-container">
-      <img :src="imageUrl" alt="Image" class="image" />
+      <img :src="imageUrl2" alt="Image" class="image" />
       <div class="numbers">
         <p>Normal: {{ normalNumber }}</p>
         <p>Shiny: {{ shinyNumber }}</p>
@@ -14,8 +14,12 @@
       normalNumber: Number,
       shinyNumber:  Number
     })
-  console.log("url: " + import.meta.env.BASE_URL);
+  console.log("url: " + import.meta.env.BASE_URL+ '/pokemon/normal/' + props.pokedexEntryNumber + '.png');
   const imageUrl= new URL(import.meta.env.BASE_URL+ '/pokemon/normal/' + props.pokedexEntryNumber + '.png', import.meta.url).href 
+  const imageUrl2 = new URL(
+  "/pokemon/Normal/" + props.pokedexEntryNumber + ".png",
+  import.meta.url
+).href;
   </script>
   
   <style>
