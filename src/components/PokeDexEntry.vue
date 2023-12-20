@@ -15,7 +15,7 @@
       shinyNumber:  Number
     })
   
-  const imageUrl=import.meta.env.BASE_URL + './pokemon/normal/' + props.pokedexEntryNumber + '.png'
+  const imageUrl= new URL(import.meta.env.BASE_URL + './src/assets/pokemon/normal/' + props.pokedexEntryNumber + '.png', import.meta.url).href 
   </script>
   
   <style>
