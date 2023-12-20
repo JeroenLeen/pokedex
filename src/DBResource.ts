@@ -23,5 +23,21 @@ export default class DBResource{
         debugger;
         return  AllPokemonDatabase;
     }
+
+    async getUniquePokedexEntries() {
+        console.log('calling pokedex');
+
+
+        let { data: AllPokemonDatabase, error } = await this.supabase
+            .from('pokedexentries')
+            .select("*");
+
+      
+        for(let entry in AllPokemonDatabase){
+            
+        }
+  
+        return  AllPokemonDatabase;
+    }
   
 }

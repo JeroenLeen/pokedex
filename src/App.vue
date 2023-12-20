@@ -30,6 +30,14 @@ function refreshData() {
   })()
 }
 
+(async () => {
+    const data  = await resource.getUniquePokedexEntries()
+    console.log("response pokedex:");
+    console.log(data);
+    items2.value =data ;
+  })()
+
+
 function onInput(e) {
   // a v-on handler receives the native DOM event
   // as the argument.
