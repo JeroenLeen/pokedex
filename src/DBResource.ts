@@ -7,7 +7,7 @@ export default class DBResource{
      supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2YmhveGJ4cHd4bXZwcmxjeG5vIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTA3MTM1MDMsImV4cCI6MjAwNjI4OTUwM30.GFaiNe-24OBUZ-J-qNepju6I28QYBszwFHYkh4igt5k'
      supabase = createClient(this.supabaseUrl, this.supabaseKey);
 
-    async sendRequest() {
+    async sendRequest(username) {
         console.log('calling');
         /*let  { data: test, error } = await this.supabase
         .from('users')
@@ -17,7 +17,7 @@ export default class DBResource{
             .from('AllPokemonDatabase')
             .select("*")
             // Filters
-            .eq('currentOwner', 'forodor');
+            .eq('currentOwner', username);
 
       
         debugger;

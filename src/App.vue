@@ -11,7 +11,7 @@ const items = ref([{ pokedexEntryNumber: '1', normalNumber:2, shinyNumber:0 }, {
 { pokedexEntryNumber: '9', normalNumber:0, shinyNumber:0 },{ pokedexEntryNumber: '10', normalNumber:0, shinyNumber:0 }])
 
 const resource = new DBResource();
-
+const username = ref('')
 const items2 = ref([]);
 
 (async () => {
@@ -21,16 +21,28 @@ const items2 = ref([]);
   items2.value =data ;
 })()
 
+function refreshData() {
+    (async () => {
+    const data  = await resource.sendRequest(username.value)
+    console.log("response:");
+    console.log(data);
+    items2.value =data ;
+  })()
+}
 
+function onInput(e) {
+  // a v-on handler receives the native DOM event
+  // as the argument.
+  username.value = e.target.value
+}
 
-console.log(items2);
-console.log("aaaa");
-console.log(import.meta.env.VITE_SUPABASE_KEY);
 
 </script>
 
 <template>
   <header>
+    <input :value="text" @input="onInput" placeholder="Type here">
+    <button @click="refreshData">"show my pokemon"</button>
 
     <div class="wrapper">
       <li v-for="item in items2">
