@@ -14,28 +14,15 @@ const resource = new DBResource();
 const username = ref('')
 const items2 = ref([]);
 
-(async () => {
-  const data  = await resource.sendRequest()
-  console.log("response:");
-  console.log(data);
-  items2.value =data ;
-})()
-
 function refreshData() {
     (async () => {
-    const data  = await resource.sendRequest(username.value)
+    const data  = await resource.getUniquePokedexEntries(username.value)
     console.log("response:");
     console.log(data);
     items2.value =data ;
   })()
 }
 
-(async () => {
-    const data  = await resource.getUniquePokedexEntries()
-    console.log("response pokedex:");
-    console.log(data);
-    items2.value =data ;
-  })()
 
 
 function onInput(e) {
@@ -54,7 +41,7 @@ function onInput(e) {
 
     <div class="wrapper">
       <li v-for="item in items2">
-        <PokedexEntry :pokedexEntryNumber="item.pokedex" :normalNumber=1  />
+        <PokedexEntry :pokedexEntryNumber="item.pokedex" :normalNumber=item.normalNumber  :shinyNumber=item.shinyNumber :name="item.monName" />
       </li>
 
     </div>

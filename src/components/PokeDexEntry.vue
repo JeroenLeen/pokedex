@@ -2,6 +2,7 @@
     <div class="image-container">
       <img :src="imageUrl2" alt="Image" class="image" />
       <div class="numbers">
+        <p><b>{{ name }}</b></p>
         <p>Normal: {{ normalNumber }}</p>
         <p>Shiny: {{ shinyNumber }}</p>
       </div>
@@ -12,7 +13,8 @@
   const props = defineProps({
       pokedexEntryNumber: String,
       normalNumber: Number,
-      shinyNumber:  Number
+      shinyNumber:  Number,
+      name: String
     })
   const imageUrl= new URL(import.meta.env.BASE_URL+ '/pokemon/normal/' + props.pokedexEntryNumber + '.png', import.meta.url).href 
   const imageUrl2 = new URL(
