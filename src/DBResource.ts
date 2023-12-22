@@ -9,9 +9,7 @@ export default class DBResource{
 
     async sendRequest(username) {
         console.log('calling');
-        /*let  { data: test, error } = await this.supabase
-        .from('users')
-        .select('*');*/
+   
 
         let { data: AllPokemonDatabase, error } = await this.supabase
             .from('AllPokemonDatabase')
@@ -23,6 +21,21 @@ export default class DBResource{
         debugger;
         return  AllPokemonDatabase;
     }
+
+    async getUniqueUsers() {
+        console.log('calling');
+   
+
+        let { data: distinctusers, error } = await this.supabase
+            .from('distinctusers')
+            .select("*");
+
+      
+  
+        return  distinctusers;
+    }
+
+    
 
     async getUniquePokedexEntries(username) {
         console.log('calling pokedex');
@@ -44,7 +57,7 @@ export default class DBResource{
         //allData.sort((a, b) => (a.pokedex < b.pokedex ? -1 : 1));
         console.log("added zero's ?");
         console.log(allData);
-        debugger;
+
 
         allData.sort(function (a, b) {
             if (a.pokedex < b.pokedex) {
@@ -55,7 +68,7 @@ export default class DBResource{
             }
             return 0;
           });
-          debugger;
+
 
           console.log(allData);
 
@@ -89,7 +102,7 @@ export default class DBResource{
 
         });
 
-        debugger;
+
        return  allData;
     }
   
