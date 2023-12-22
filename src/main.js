@@ -3,6 +3,6 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import './scss/app.scss';
-createApp(App).mount('#app')
-//Vue.component('multiselect', Multiselect)
+const app = createApp(App).mount('#app')
+app.component('multiselect', Multiselect)
 
